@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Navbar */
+
+.navbar {
+  background-color:rgb(17, 28, 49);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h2 {
+  color: white;
+}
+
+.navbar a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: rgb(17, 28, 49);
+}
+
+/* Home Page */
+
+.home-page {
+  background-image: url('/flight.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-page {
+  background-image: url('/about.jpeg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  background-Repeat: no-repeat;
+  color: black;
+  padding: 20px;
+  margin:0;
+}
+.contact-page{
+        background-image: url('/contact.jpeg');
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-Repeat: no-repeat;
+        color: white;
+        padding: 40px;
+}
+.login-page{
+        background-image: url('/login.jpeg');
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-Repeat: no-repeat;
+        color: white;
+        padding: 40px;
+        justify-content: center;
+        align-items: center;
+       
+}
+.signup-page{
+        background-image: url('/signup.jpeg');
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-Repeat: no-repeat;
+        color: white;
+        padding: 40px;
+        justify-content: center;
+        align-items: center;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+}
+
+.flight-image {
+  width: 300px;
+  border-radius: 10px;
+}
+
+/* General Page */
+
+.page {
+  padding: 40px;
+  text-align: center;
+  min-height: 80vh;
+}
+
+/* Inputs */
+
+input,
+textarea {
+  width: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+/* Buttons */
+
+button {
+  padding: 10px 20px;
+  background-color: rgb(17, 28, 49);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: darkred;
+}
+
+/* Footer */
+
+.footer {
+  background-color:rgb(17, 28, 49);
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
