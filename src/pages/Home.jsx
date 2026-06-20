@@ -1,39 +1,67 @@
-import React from 'react'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 function Home() {
+  const [flightNumber, setFlightNumber] = useState("");
+  const navigate = useNavigate();
+
+  const handleTrackFlight = () => {
+    if (flightNumber.trim() === "") {
+      alert("Please enter a flight number");
+      return;
+    }
+
+    navigate(`/dashboard?flight=${flightNumber}`);
+  };
+
   return (
-    <div className="home-page">
+    <div className="app-page">
 
-      <div className="overlay">
+        <div className="glass-container glass-large">
 
-        <h1>Welcome to Flight Status Tracker</h1>
+          <h1>Welcome to Flight Status Tracker</h1>
+          <p>
+            Track real-time flight departures, arrivals, delays and gate information.
+          </p>
 
-        <p>
-          Track real-time flight departures,
-          arrivals, delays and gate information.
-        </p>
+          {/* Grid Section */}
+          <div className="content-grid">
 
-        <img
-          src="/flight.jpeg"
-          alt="Flight"
-          className="flight-image"
-        />
+            <div className="stats-box">
+              <h3>System Status</h3>
+              <p>Total Flights Tracked: 24,567</p>
+              <p>Delayed: 121 | On Time: 23,000</p>
+            </div>
 
-        <br /><br />
+            <div className="updates-box">
+              <h3>Live Active Flights</h3>
+              <ul>
+                <li>Flight AUN: 13:55 - Status: Active</li>
+                <li>Flight YNR: 13:45 - Status: Delayed</li>
+              </ul>
+            </div>
 
-        <input
-          type="text"
-          placeholder="Enter Flight Number"
-          required
-        />
+          </div>
 
-        <br /><br />
+          {/* Search Section */}
+          <div className="search-box">
+            <input
+              type="text"
+              placeholder="Enter Flight Number"
+              value={flightNumber}
+              onChange={(e) => setFlightNumber(e.target.value)}
+            />
 
-        <button>Track Flight</button>
+            <button className="btn btn-primary" onClick={handleTrackFlight}>
+              Track Flight
+            </button>
+          </div>
+
+        </div>
 
       </div>
-
-    </div>
-  )
+    
+  );
 }
 
-export default Home
+export default Home;
