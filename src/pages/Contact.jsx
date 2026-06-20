@@ -1,55 +1,64 @@
-import React from 'react'
+import React, { useRef } from "react";
+import { contactValidation } from "../flights";
+
 function Contact() {
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const subjectRef = useRef();
+  const messageRef = useRef();
+
+  const handleSend = () => {
+    const name = nameRef.current.value;
+    const email = emailRef.current.value;
+    const subject = subjectRef.current.value;
+    const message = messageRef.current.value;
+
+    const result = contactValidation(name, email, subject, message);
+
+    if (result.success) {
+      alert(result.message);
+
+      nameRef.current.value = "";
+      emailRef.current.value = "";
+      subjectRef.current.value = "";
+      messageRef.current.value = "";
+    } else {
+      alert(result.message);
+    }
+  };
+
   return (
-    <div className="contact-page">
+    <div className="app-page">
+      <div className="page-content">
 
-      <h1>Contact Us</h1>
+        <div className="contact-card">
 
-      <p>
-        We are here to help you with flight tracking
-        and status updates. Feel free to contact us
-        for any queries, suggestions, or support.
-      </p>
+          <h1>CONTACT US</h1>
+          <p>We'd Love to Hear From You!</p>
 
-      <br />
+          <input ref={nameRef} type="text" placeholder="👤 Full Name" />
 
-      <form>
+          <input ref={emailRef} type="email" placeholder="📧 Email Address" />
 
-        <input
-          type="text"
-          placeholder="Enter Your Name"
-          required
-        />
+          <input ref={subjectRef} type="text" placeholder="💡 Subject" />
 
-        <br /><br />
+          <textarea ref={messageRef} placeholder="💬 Your Message"></textarea>
 
-        <input
-          type="email"
-          placeholder="Enter Your Email"
-          required
-        />
+          <button className="btn btn-primary btn-block" onClick={handleSend}>
+             SEND MESSAGE
+                 </button>
 
-        <br /><br />
+          <div className="contact-footer">
+            <p>Need immediate help? Visit our Help Center</p>
+            <span>📞 +91 9876543210</span>
+            <span> ✉ support@flighttracker.com</span>
+          </div>
 
-        <textarea
-          placeholder="Enter Your Message"
-          required
-        ></textarea>
+        </div>
 
-        <br /><br />
-
-        <button type="submit">Send Message</button>
-
-      </form>
-
-      <br />
-
-      <p>Email: support@flighttracker.com</p>
-
-      <p>Phone: +91 9876543210</p>
-
+      </div>
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;
